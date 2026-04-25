@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shatayu Crypto - Portfolio Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-coins"></i>
+                    Shatayu Crypto
+                </h1>
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="stat-value" id="totalValue">$0</span>
+                        <span class="stat-label">Portfolio Value</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-change positive" id="totalChange">+0%</span>
+                        <span class="stat-label">24h Change</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-primary" id="addCoinBtn">
+                <i class="fas fa-plus"></i> Add Coin
+            </button>
+            <button class="btn btn-secondary" id="refreshBtn">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+
+        <!-- Portfolio Table -->
+        <div class="portfolio-section">
+            <h2>My Portfolio</h2>
+            <div class="table-container">
+                <table id="portfolioTable">
+                    <thead>
+                        <tr>
+                            <th>Coin</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Value</th>
+                            <th>24h Change</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="portfolioBody">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Add Coin Modal -->
+        <div class="modal" id="addCoinModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Cryptocurrency</h3>
+                    <span class="close" id="closeModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="search-container">
+                        <input type="text" id="coinSearch" placeholder="Search coins (e.g., Bitcoin, ETH)">
+                        <div id="coinResults"></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Amount:</label>
+                        <input type="number" id="coinAmount" step="0.0001" min="0" placeholder="0.00">
+                    </div>
+                    <div class="input-group">
+                        <label>Purchase Price (optional):</label>
+                        <input type="number" id="purchasePrice" step="0.01" min="0" placeholder="Current price used">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="addCoinConfirm">Add to Portfolio</button>
+                    <button class="btn btn-secondary" id="cancelAdd">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
